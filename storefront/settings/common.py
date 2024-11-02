@@ -157,34 +157,15 @@ DJOSER = {
 SIMPLE_JWT = {"AUTH_HEADER_TYPES": ("JWT",), "ACCESS_TOKEN_LIFETIME": timedelta(days=1)}
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-
-
-EMAIL_HOST = "localhost"
-EMAIL_PORT = 2525
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
 DEFAULT_FROM_EMAIL = "sarthak@localhost.in"
 ADMINS = [("sarthak", "admin@sarthak.in")]
 
 
-CELERY_BROKER_URL = "redis://localhost:6379/1"
 CELERY_BEAT_SCHEDULE = {
     "notify-customers": {
         "task": "playground.tasks.notify_customers",
         "schedule": crontab(hour=11, minute=4),
         "args": ("Start karo",),
-    }
-}
-
-
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/2",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
     }
 }
 
