@@ -6,7 +6,7 @@ DEBUG = False
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".vercel.app", ".now.sh"]
 
 STATIC_URL = os.path.join(BASE_DIR, "static/")
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
