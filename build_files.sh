@@ -3,6 +3,6 @@ python3.9 -m pip install -r requirements.txt
 python3.9 manage.py collectstatic --noinput --clear
 python3.9 manage.py makemigrations
 python3.9 manage.py migrate
-gunicorn storefront.wsgi
+gunicorn storefront.wsgi:application --bind 0.0.0.0:8000
 celery -A storefront worker -l info
 echo "BUILD ENDED...."
